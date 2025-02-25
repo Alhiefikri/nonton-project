@@ -13,7 +13,7 @@ export default function VideoDetail({
         </div>
         <div className="flex flex-col gap-1">
           <h2 className="font-bold text-lg">Title</h2>
-          <h5 className="font-bold text-sm">Channel Title</h5>
+          <h2 className="font-bold text-sm">Channel Title</h2>
           <p className="text-slate-400 text-md">Desctiption</p>
         </div>
       </div>

@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import VideoItem from "./VideoItem";
 
-export default function VideoList() {
+export default function VideoList({ videos }: { videos: any }) {
+  console.log(videos);
   return (
     <div className="grid grid-cols-5 gap-8">
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((video: any) => {
+      {videos.map((video: any) => {
         return (
-          <div key={video}>
-            <VideoItem />
+          <div key={video.id.videoId}>
+            <VideoItem video={video} />
           </div>
         );
       })}
