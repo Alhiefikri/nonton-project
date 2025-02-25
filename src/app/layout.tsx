@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/ModeToggle";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +31,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="p-4 flex gap-12 items-center font-bold">
+            <ModeToggle />
+            <Link
+              href={"/videos"}
+              className="bg-slate-200 p-2 rounded-md dark:text-green-400 text-yellow-400"
+            >
+              Nonton Project{" "}
+            </Link>
+          </div>
+          <div className="p-4">{children}</div>
+        </ThemeProvider>
       </body>
     </html>
   );
