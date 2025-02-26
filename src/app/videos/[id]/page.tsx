@@ -1,4 +1,21 @@
 import { apiKey } from "@/constant";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
+  // read route params
+  const id = (await params).id;
+
+  // fetch data
+  const video = await fetchVideo(id);
+
+  return {
+    title: video[0].snippet.title,
+  };
+}
 
 async function fetchVideo(id: string) {
   let url = new URL(
